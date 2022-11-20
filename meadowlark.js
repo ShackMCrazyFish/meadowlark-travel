@@ -1,4 +1,5 @@
 const express = require('express');
+const fortune = require('./lib/fortune');
 const ExpressHandlebars = require('express-handlebars')
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,16 +14,8 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
-const fortunes = [
-    "Победи свои страхи, или они победят тебя.", "Рекам нужны истоки.",
-    "Не бойся неведомого.",
-    "Тебя ждет приятный сюрприз.",
-    "Будь проще везде, где только можно.",
-];
-
 app.get('/about', (req, res) => {
-    const fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-    res.render('about', { fortune });
+    res.render('about', { fortune: fortune.getFortune() });
 });
 
 app.use((req, res) => {
