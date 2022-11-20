@@ -2,9 +2,9 @@
   "name": "express",
   "version": "0.0.0",
   "private": true,
-  "main": "app.js",
+  "main": "meadowlark.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node meadowlark.js"
   },
   "dependencies": {
     "express": "~4.16.1",
