@@ -10,13 +10,13 @@ app.engine('handlebars', ExpressHandlebars.engine({
 
 app.set('view engine', 'handlebars');
 
-app.get('/', handlers.home());
+app.get('/', handlers.home);
 
-app.get('/about', handlers.about());
+app.get('/about', handlers.about);
 
-app.use(handlers.notFound());
+app.use(handlers.notFound);
 
-app.use(handlers.serverError());
+app.use(handlers.serverError);
 
 app.listen(port, () => {
     console.log('Server started')
