@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.engine('handlebars', ExpressHandlebars.engine({
-    defaultLayout: 'main',
+  defaultLayout: 'main',
 }));
 
 app.set('view engine', 'handlebars');
@@ -18,6 +18,10 @@ app.use(handlers.notFound);
 
 app.use(handlers.serverError);
 
-app.listen(port, () => {
+if (require.main === module) {
+  app.listen(port, () => {
     console.log('Server started')
-});
+  });
+} else {
+  module.exports = app;
+}
